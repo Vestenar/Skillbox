@@ -2,7 +2,7 @@ import requests
 from string import ascii_letters as alphabet
 
 state = 0
-alphabet = '*' + ''.join((str(i) for i in range(10))) + alphabet    # включая буквы в верхнем регистре
+alphabet = '*' + ''.join((str(i) for i in range(10))) + alphabet                # включая буквы в верхнем регистре
                                                                                 # для увеличения скорости перебора можно заменить на .ascii_lowercase
 def to_alphabet(n):
     base = len(alphabet)
