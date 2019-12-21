@@ -1,6 +1,5 @@
 import requests
 from string import ascii_letters as alphabet
-import time
 
 state = 0
 alphabet = '*' + ''.join((str(i) for i in range(10))) + alphabet    # включая буквы в верхнем регистре
@@ -33,7 +32,6 @@ def start_bruteforce(login, pass_pattern):
             global state
             state = 0
             pass_list.append(password)
-            time.sleep(1)
             break
         else:
             # print(f'{password=} is incorrect')
