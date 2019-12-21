@@ -2,6 +2,7 @@ import requests
 from string import ascii_letters as alphabet
 
 state = 0
+pass_list = []
 alphabet = '*' + ''.join((str(i) for i in range(10))) + alphabet    # включая буквы в верхнем регистре
                                                                                 # для увеличения скорости перебора можно заменить на .ascii_lowercase
 def to_alphabet(n):
@@ -39,7 +40,6 @@ def start_bruteforce(login, pass_pattern):
 
 
 if __name__ == '__main__':
-    pass_list = []
     login_list = ['admin', 'jack', 'cat']
     for login in login_list:
         password = ''
