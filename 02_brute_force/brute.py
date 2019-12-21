@@ -30,10 +30,14 @@ def start_bruteforce(login, pass_pattern):
             print('Password %s for %s Found!' % (password, login))
             break
         else:
-            print(f'{password=} is incorrect')
+            # print(f'{password=} is incorrect')
+            pass                                          # раскомментировать строку выше для наблюдения процесса
 
 
 if __name__ == '__main__':
-    login = 'admin'
-    password = ''
-    start_bruteforce(login, password)
+    login_list = ['admin', 'jack', 'cat']
+    pass_list = []
+    for login in login_list:
+        password = ''
+        start_bruteforce(login, password)
+    print(dict(zip(login_list, pass_list)))
